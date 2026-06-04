@@ -24,7 +24,7 @@ export default function ProjectDetail() {
     <div className="min-h-dvh pt-24 pb-16 px-6">
       <div className="max-w-4xl mx-auto">
         <Link
-          to="/#proyectos"
+          to={{ pathname: '/', hash: '#proyectos' }}
           className="inline-flex items-center gap-2 text-muted hover:text-accent transition-colors mb-8 no-underline"
         >
           <i className="fa-solid fa-arrow-left" />
