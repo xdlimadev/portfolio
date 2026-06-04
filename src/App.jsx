@@ -24,8 +24,12 @@ function Home() {
 }
 
 function App() {
+  const basename = window.location.pathname.startsWith('/portfolio/')
+    ? '/portfolio'
+    : '/'
+
   return (
-    <BrowserRouter basename="/portfolio">
+    <BrowserRouter basename={basename}>
       <ThemeProvider>
         <I18nProvider>
           <div className="relative">
