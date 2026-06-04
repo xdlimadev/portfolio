@@ -15,9 +15,12 @@ function Home() {
   const { hash } = useLocation()
 
   useEffect(() => {
-    if (hash) {
-      const el = document.querySelector(hash)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    const id = hash || window.location.hash
+    if (id) {
+      requestAnimationFrame(() => {
+        const el = document.querySelector(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      })
     }
   }, [hash])
 
