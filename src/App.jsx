@@ -24,7 +24,8 @@ function Home() {
 }
 
 function App() {
-  const basename = window.location.pathname.startsWith('/portfolio/')
+  const path = window.location.pathname
+  const basename = path === '/portfolio' || path.startsWith('/portfolio/')
     ? '/portfolio'
     : '/'
 
