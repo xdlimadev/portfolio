@@ -25,7 +25,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio">
       <ThemeProvider>
         <I18nProvider>
           <div className="relative">
