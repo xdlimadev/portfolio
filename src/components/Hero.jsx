@@ -2,6 +2,8 @@ import { useLang } from '../context/I18nContext'
 
 export default function Hero() {
   const { t } = useLang()
+  const path = window.location.pathname
+  const base = path === '/portfolio' || path.startsWith('/portfolio/') ? '/portfolio' : ''
 
   return (
     <section
@@ -22,11 +24,11 @@ export default function Hero() {
           {t.hero.description}
         </p>
         <div className="flex items-center justify-center gap-4">
-          <a href="#proyectos" className="btn-accent no-underline">
+          <a href={`${base}/#proyectos`} className="btn-accent no-underline">
             {t.hero.viewProjects}
           </a>
           <a
-            href="#contacto"
+            href={`${base}/#contacto`}
             className="border border-border text-secondary hover:text-accent hover:border-accent px-6 py-3 rounded-lg font-medium transition-colors no-underline"
           >
             {t.hero.contact}

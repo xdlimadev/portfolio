@@ -2,18 +2,20 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useLang } from '../context/I18nContext'
 
-const links = [
-  { key: 'about', href: '#sobre-mi' },
-  { key: 'projects', href: '#proyectos' },
-  { key: 'skills', href: '#habilidades' },
-  { key: 'contact', href: '#contacto' },
-]
-
 export default function Header() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
-  const isHome = location.pathname === '/'
   const { t } = useLang()
+  const isHome = location.pathname === '/'
+  const path = window.location.pathname
+  const base = path === '/portfolio' || path.startsWith('/portfolio/') ? '/portfolio' : ''
+
+  const links = [
+    { key: 'about', href: `${base}/#sobre-mi` },
+    { key: 'projects', href: `${base}/#proyectos` },
+    { key: 'skills', href: `${base}/#habilidades` },
+    { key: 'contact', href: `${base}/#contacto` },
+  ]
 
   return (
     <header className="glass fixed top-0 left-0 w-full z-50">
