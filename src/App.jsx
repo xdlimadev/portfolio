@@ -12,6 +12,15 @@ import ProjectDetail from './components/ProjectDetail'
 import FloatingMenu from './components/FloatingMenu'
 
 function Home() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [hash])
+
   return (
     <>
       <main>
@@ -24,19 +33,6 @@ function Home() {
   )
 }
 
-function ScrollToHash() {
-  const { hash } = useLocation()
-
-  useEffect(() => {
-    if (hash) {
-      const el = document.querySelector(hash)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, [hash])
-
-  return null
-}
-
 function App() {
   const path = window.location.pathname
   const basename = path === '/portfolio' || path.startsWith('/portfolio/')
@@ -45,7 +41,6 @@ function App() {
 
   return (
     <BrowserRouter basename={basename}>
-      <ScrollToHash />
       <ThemeProvider>
         <I18nProvider>
           <div className="relative">
