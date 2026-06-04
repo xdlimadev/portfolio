@@ -3,10 +3,10 @@ import { Link, useLocation } from 'react-router-dom'
 import { useLang } from '../context/I18nContext'
 
 const links = [
-  { key: 'about', href: '/#sobre-mi' },
-  { key: 'projects', href: '/#proyectos' },
-  { key: 'skills', href: '/#habilidades' },
-  { key: 'contact', href: '/#contacto' },
+  { key: 'about', href: '#sobre-mi' },
+  { key: 'projects', href: '#proyectos' },
+  { key: 'skills', href: '#habilidades' },
+  { key: 'contact', href: '#contacto' },
 ]
 
 export default function Header() {
