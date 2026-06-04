@@ -1,0 +1,48 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
+import { I18nProvider } from './context/I18nContext'
+import Particles from './components/Particles'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Projects from './components/Projects'
+import Skills from './components/Skills'
+import Contact from './components/Contact'
+import ProjectDetail from './components/ProjectDetail'
+import FloatingMenu from './components/FloatingMenu'
+
+function Home() {
+  return (
+    <>
+      <main>
+        <Hero />
+        <Projects />
+        <Skills />
+      </main>
+      <Contact />
+    </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <ThemeProvider>
+        <I18nProvider>
+          <div className="relative">
+            <Particles />
+            <div className="relative z-10">
+              <Header />
+              <FloatingMenu />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/proyecto/:slug" element={<ProjectDetail />} />
+              </Routes>
+            </div>
+          </div>
+        </I18nProvider>
+      </ThemeProvider>
+    </BrowserRouter>
+  )
+}
+
+export default App
