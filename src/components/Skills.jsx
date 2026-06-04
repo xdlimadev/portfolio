@@ -44,6 +44,11 @@ const categories = [
         icon: 'fa-brands fa-github',
         color: 'text-primary',
       },
+      {
+        label: 'AI-assisted dev',
+        icon: 'fa-solid fa-wand-magic-sparkles',
+        color: 'text-purple-400',
+      },
     ],
   },
 ]
