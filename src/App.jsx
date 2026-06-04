@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import { I18nProvider } from './context/I18nContext'
 import Particles from './components/Particles'
@@ -23,6 +24,19 @@ function Home() {
   )
 }
 
+function ScrollToHash() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [hash])
+
+  return null
+}
+
 function App() {
   const path = window.location.pathname
   const basename = path === '/portfolio' || path.startsWith('/portfolio/')
@@ -31,6 +45,7 @@ function App() {
 
   return (
     <BrowserRouter basename={basename}>
+      <ScrollToHash />
       <ThemeProvider>
         <I18nProvider>
           <div className="relative">
